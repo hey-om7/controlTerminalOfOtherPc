@@ -1,7 +1,7 @@
 import socket
 
 HOST = '192.168.100.9'  # The server's hostname or IP address
-PORT = 5050        # The port used by the server
+PORT = 5010        # The port used by the server
 
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -26,7 +26,10 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.close()
         if(data.decode()=="stop"):
             s.close()
-        print('Received', repr(data))
+        dataReceived=repr(data)
+        print('Received:\n\n ', dataReceived.replace("\\\\r\\\\n","\n"))
+
+    
         
 
     
